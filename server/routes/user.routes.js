@@ -1,9 +1,12 @@
 const  express = require('express')
 const  userCtrl = require('../controllers/user.controller')
 const  authCtrl = require('../controllers/auth.controller')
+const { get } = require('lodash')
 
 const router = express.Router()
 
+router.route('/')
+    .get(authCtrl.index)
 router.route('/api/users')
   .get(userCtrl.list)
   .post(userCtrl.create)

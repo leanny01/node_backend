@@ -3,6 +3,12 @@ const  jwt = require('jsonwebtoken')
 const  expressJwt = require('express-jwt')
 const  config = require('./../../config/config')
 
+const index = (req,res)=>{
+    return res.json({
+
+        message: `Welcome all good`
+      })
+}
 const signin = async (req, res) => {
   try {
     let user = await User.findOne({
@@ -68,6 +74,7 @@ const hasAuthorization = (req, res, next) => {
 }
 
 module.exports =  {
+  index,
   signin,
   signout,
   requireSignin,

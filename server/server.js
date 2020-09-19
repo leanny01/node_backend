@@ -5,10 +5,11 @@ const  mongoose = require('mongoose');
 
 // Connection URL
 mongoose.Promise = global.Promise
+
 mongoose.connect(config.mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
-mongoose.connection.on('error', () => {
-  throw new Error(`unable to connect to database: ${config.mongoUri}`)
-})
+.then(()=> console.log('db connected'))
+.catch((err => console.log(`could not connect to db ${err}`)))
+
 
 
 

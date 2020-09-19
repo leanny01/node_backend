@@ -9,4 +9,6 @@ const config = {
       '/mernbackend'
   }
 
-  export default config
+
+
+  module.exports = config

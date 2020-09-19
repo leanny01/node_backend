@@ -1,4 +1,5 @@
 const express = require('express')
+const app = express()
 const path  = require( 'path')
 const bodyParser= require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -7,7 +8,6 @@ const cors = require('cors')
 const helmet = require('helmet')
 
 const CURRENT_WORKING_DIR = process.cwd()
-const app = express()
 
 
 // parse body params and attache them to req.body
@@ -32,4 +32,4 @@ app.use((err, req, res, next) => {
   }
 })
 
-export default app
+module.exports =  app

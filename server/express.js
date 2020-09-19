@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser')
 const compress = require('compression')
 const cors = require('cors')
 const helmet = require('helmet')
+const  userRoutes = require ('./routes/user.routes');
+const  authRoutes = require ('./routes/auth.routes');
 
 const CURRENT_WORKING_DIR = process.cwd()
 
@@ -17,10 +19,13 @@ app.use(cookieParser())
 app.use(compress())
 // secure apps by setting various HTTP headers
 app.use(helmet())
-// enable CORS - Cross Origin Resource Sharing
+ //enable CORS - Cross Origin Resource Sharing
 app.use(cors())
 
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
+
+app.use('/',userRoutes);
+app.use('/',authRoutes);
 
 // Catch unauthorised errors
 app.use((err, req, res, next) => {

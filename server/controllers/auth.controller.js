@@ -67,7 +67,7 @@ const hasAuthorization = (req, res, next) => {
   next()
 }
 
-module.export =  {
+module.exports =  {
   signin,
   signout,
   requireSignin,

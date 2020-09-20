@@ -44,7 +44,7 @@ const read = (req, res) => {
 const list = async (req, res) => {
   try {
     let users = await User.find().select('name email updated created')
-    console.log(users)
+
 
     res.json(users)
   } catch (err) {
@@ -60,6 +60,7 @@ const list = async (req, res) => {
 const update = async (req, res) => {
   try {
     let user = req.profile
+    console.log(user)
     user = extend(user, req.body)
     user.updated = Date.now()
     await user.save()
